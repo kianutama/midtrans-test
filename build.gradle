@@ -1,0 +1,32 @@
+group '1'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+ext.checkstyle_version = '8.8'
+ext.java_version = '1.8'
+ext.junit4_version = '4.12'
+ext.junit5_jupiter_version = '5.1.0'
+ext.junit5_platform_version = '1.1.0'
+ext.junit5_vintage_version = '5.1.0'
+ext.mockito_version = '2.5.4'
+ext.project_group = 'id.ac.ui.cs.advprog'
+ext.project_rootdir = project.rootDir.toString()
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'junit', name: 'junit', version: junit4_version
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: mockito_version
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junit5_jupiter_version
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junit5_jupiter_version
+    testRuntimeOnly group: 'org.junit.platform', name: 'junit-platform-launcher', version: junit5_platform_version
+    testRuntimeOnly group: 'org.junit.vintage', name: 'junit-vintage-engine', version: junit5_vintage_version
+}
